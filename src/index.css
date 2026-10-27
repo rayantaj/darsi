@@ -1,0 +1,40 @@
+:root {
+  --ground: #ffffff;
+  --surface: #f6f7f8;
+  --ink: #15181c;
+  --muted: #5b6470;
+  --hairline: #e3e6ea;
+  --accent: #0f766e;
+  --wrong: #b42318;
+  --right: #067647;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #111417;
+    --surface: #1a1e23;
+    --ink: #f2f4f6;
+    --muted: #a3adb8;
+    --hairline: #2a3038;
+    --accent: #2dd4bf;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
