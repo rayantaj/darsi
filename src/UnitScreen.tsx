@@ -57,7 +57,7 @@ export default function UnitScreen({ unit }: { unit: Unit }) {
           )
         })}
       </div>
-      <button type="button" disabled className={styles.unitTest}>اختبار الوحدة · 20 سؤالاً</button>
+      <a href="#/test" className={styles.unitTest}>اختبار الوحدة · 20 سؤالاً</a>
     </div>
   )
 }

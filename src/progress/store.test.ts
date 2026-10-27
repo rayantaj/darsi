@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { best, due, load, mark, report, save } from './store.ts'
+import { addTest, best, due, load, mark, report, save } from './store.ts'
 
 const DAY = 86400000
 const now = 1_000_000
@@ -14,6 +14,14 @@ describe('best and report', () => {
     const r = { lessonId: 'a', index: 2, prompt: 'q', at: now }
     const p = report(report({ cards: { 'a:0': { box: 2, due: now } } }, r), r)
     expect(p.reports).toHaveLength(2)
+    expect(p.cards['a:0'].box).toBe(2)
+  })
+})
+
+describe('addTest', () => {
+  it('appends scores and keeps the rest', () => {
+    const p = addTest(addTest({ cards: { 'a:0': { box: 2, due: now } } }, 14, now), 17, now + 1)
+    expect(p.tests).toEqual([{ score: 14, at: now }, { score: 17, at: now + 1 }])
     expect(p.cards['a:0'].box).toBe(2)
   })
 })
