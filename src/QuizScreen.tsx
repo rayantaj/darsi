@@ -138,7 +138,7 @@ export default function QuizScreen({ id, title, questions, back: backHref = `#/l
       <header className={styles.header}>
         {back}
         <span>الاختبار</span>
-        {seconds && <span className={styles.timer} dir="ltr">{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</span>}
+        {seconds && <span className={styles.timer}><bdi dir="ltr">{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</bdi></span>}
       </header>
       <div className={styles.meta}>
         <span>السؤال {i + 1} من {questions.length}</span>

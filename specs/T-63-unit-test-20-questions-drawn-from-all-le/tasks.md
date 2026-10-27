@@ -1,6 +1,6 @@
 # Unit test: 20 questions drawn from all lessons, a 30-minute timer, score history: tasks
 
-Built as T-63.
+Built as T-63: https://github.com/rayantaj/darsi/pull/6.
 
 - [x] Store: add `tests?: {score: number; at: number}[]` to Progress and `addTest(p, score, at)` that appends, with a store test.
 - [x] Draw: export `draw(lessons, random = Math.random)` from src/UnitTestScreen.tsx that takes 4 random questions from each lesson with questions, shuffles them, and keeps each one's {lessonId, index}. Add a test for the counts with a fixed random.
