@@ -21,9 +21,9 @@ const Question = z.discriminatedUnion('type', [
 const Lesson = z.object({
   id: text,
   title: text,
-  summary: text,
-  cards: ten(z.object({ front: text, back: text })),
-  questions: ten(Question),
+  summary: text.optional(),
+  cards: ten(z.object({ front: text, back: text })).optional(),
+  questions: ten(Question).optional(),
 })
 
 export const UnitSchema = z.object({
