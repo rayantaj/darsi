@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { checkUnit } from './check-content.ts'
+import { checkUnit, lessonLine } from './check-content.ts'
 
 const question = () => ({
   type: 'numeric',
@@ -42,6 +42,12 @@ describe('checkUnit', () => {
   it('names the lesson when it has nine questions', () => {
     const errors = checkUnit(unit({ questions: Array.from({ length: 9 }, question) }), 'u1.json')
     expect(errors.join('\n')).toContain('الدرس الأول')
+  })
+
+  it('prints a count line per lesson', () => {
+    const [full, bare] = [unit().lessons[0], { id: 'l2', title: 'عنوان فقط' }]
+    expect(lessonLine(full)).toBe('l1 "الدرس الأول": summary ✓, 10 cards, 10 questions')
+    expect(lessonLine(bare)).toBe('l2 "عنوان فقط": summary –, 0 cards, 0 questions')
   })
 
   it('quotes a formula that does not parse', () => {

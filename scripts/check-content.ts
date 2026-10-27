@@ -60,13 +60,20 @@ export function checkUnit(json: unknown, file: string): string[] {
   return errors
 }
 
+type Counted = Pick<Lesson, 'id' | 'title' | 'summary'> & { cards?: unknown[]; questions?: unknown[] }
+export const lessonLine = (l: Counted): string =>
+  `${l.id} "${l.title}": summary ${l.summary ? '✓' : '–'}, ${l.cards?.length ?? 0} cards, ${l.questions?.length ?? 0} questions`
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const dir = 'content/units'
   const files = readdirSync(dir).filter((f) => f.endsWith('.json'))
   const errors = files.flatMap((f) => {
     const path = join(dir, f)
     try {
-      return checkUnit(JSON.parse(readFileSync(path, 'utf8')), path)
+      const json = JSON.parse(readFileSync(path, 'utf8'))
+      const found = checkUnit(json, path)
+      if (!found.length) (json as Unit).lessons.forEach((l) => console.log(lessonLine(l)))
+      return found
     } catch (e) {
       return [`${path}: ${(e as Error).message}`]
     }
