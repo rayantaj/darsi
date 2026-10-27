@@ -1,7 +1,7 @@
 import Summary from './Summary.tsx'
 import styles from './SummaryScreen.module.css'
 
-export default function SummaryScreen({ n, title, md }: { n: number; title: string; md: string }) {
+export default function SummaryScreen({ n, id, title, md }: { n: number; id: string; title: string; md: string }) {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -16,7 +16,7 @@ export default function SummaryScreen({ n, title, md }: { n: number; title: stri
       <h1 className={styles.title}>{title}</h1>
       <Summary md={md} />
       <div className={styles.actions}>
-        <button type="button" disabled className={styles.primary}>البطاقات · 10</button>
+        <a href={`#/cards/${id}`} className={styles.primary}>البطاقات · 10</a>
         <button type="button" disabled className={styles.secondary}>الاختبار · 10 أسئلة</button>
       </div>
     </div>
