@@ -1,8 +1,14 @@
 import type { Unit } from './content/schema.ts'
 import styles from './UnitScreen.module.css'
 
-// No progress store yet: every mark is empty.
-const marks = () => ({ summary: false, cards: false, quiz: false })
+import { load, type Progress } from './progress/store.ts'
+
+// Summary and quiz marks wait for their own features.
+const marks = (l: Unit['lessons'][number], p: Progress) => ({
+  summary: false,
+  cards: !!l.cards && l.cards.every((_, i) => (p.cards[`${l.id}:${i}`]?.box ?? 1) >= 2),
+  quiz: false,
+})
 
 const labels = [
   ['summary', 'ملخص'],
@@ -11,7 +17,8 @@ const labels = [
 ] as const
 
 export default function UnitScreen({ unit }: { unit: Unit }) {
-  const all = unit.lessons.map(marks)
+  const p = load()
+  const all = unit.lessons.map((l) => marks(l, p))
   const started = all.some((m) => m.summary || m.cards || m.quiz)
   return (
     <div className={styles.page}>
