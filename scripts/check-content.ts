@@ -17,9 +17,9 @@ const formulaError = (latex: string): string | null => {
 
 function lessonTexts(l: Lesson): string[] {
   return [
-    l.summary,
-    ...l.cards.flatMap((c) => [c.front, c.back]),
-    ...l.questions.flatMap((q) =>
+    l.summary ?? '',
+    ...(l.cards ?? []).flatMap((c) => [c.front, c.back]),
+    ...(l.questions ?? []).flatMap((q) =>
       q.type === 'multiple-choice'
         ? [q.prompt, q.why, ...q.choices.map((c) => c.text)]
         : [q.prompt, q.why, q.answer],
@@ -44,7 +44,7 @@ export function checkUnit(json: unknown, file: string): string[] {
   const errors: string[] = []
   parsed.data.lessons.forEach((lesson, i) => {
     const at = where(i)
-    lesson.questions.forEach((q, n) => {
+    ;(lesson.questions ?? []).forEach((q, n) => {
       if (q.type === 'multiple-choice') {
         if (q.choices.filter((c) => c.correct).length !== 1)
           errors.push(`${at}: question ${n + 1} needs exactly one correct choice`)

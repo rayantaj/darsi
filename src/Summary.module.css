@@ -1,0 +1,44 @@
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.h2 {
+  margin: 18px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.p {
+  margin: 0;
+}
+
+.card {
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 0 20px;
+}
+
+.rule {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+  border-block-end: 1px solid var(--hairline);
+}
+
+.rule:last-child {
+  border-block-end: 0;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.formula {
+  font-size: 19px;
+  text-align: start;
+}

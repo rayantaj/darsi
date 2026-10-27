@@ -28,6 +28,17 @@ describe('checkUnit', () => {
     expect(checkUnit(unit(), 'u1.json')).toEqual([])
   })
 
+  it('passes a title-only lesson', () => {
+    const lesson = { id: 'l2', title: 'عنوان فقط' }
+    const u = { id: 'u1', title: 'الوحدة', lessons: [lesson] }
+    expect(checkUnit(u, 'u1.json')).toEqual([])
+  })
+
+  it('fails a lesson with nine cards', () => {
+    const cards = Array.from({ length: 9 }, () => ({ front: 'س', back: 'ج' }))
+    expect(checkUnit(unit({ cards }), 'u1.json')).not.toEqual([])
+  })
+
   it('names the lesson when it has nine questions', () => {
     const errors = checkUnit(unit({ questions: Array.from({ length: 9 }, question) }), 'u1.json')
     expect(errors.join('\n')).toContain('الدرس الأول')
