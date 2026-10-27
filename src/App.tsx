@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import unitJson from '../content/units/limits-derivatives.json'
 import type { Unit } from './content/schema.ts'
 import FlashcardsScreen from './FlashcardsScreen.tsx'
+import QuizScreen from './QuizScreen.tsx'
+import ReportsScreen from './ReportsScreen.tsx'
 import SummaryScreen from './SummaryScreen.tsx'
 import UnitScreen from './UnitScreen.tsx'
 
@@ -16,6 +18,9 @@ export default function App() {
   }, [])
   const c = unit.lessons.find((l) => hash === `#/cards/${l.id}`)
   if (c?.cards) return <FlashcardsScreen key={c.id} id={c.id} title={c.title} cards={c.cards} />
+  const q = unit.lessons.find((l) => hash === `#/quiz/${l.id}`)
+  if (q?.questions) return <QuizScreen key={q.id} id={q.id} title={q.title} questions={q.questions} />
+  if (hash === '#/reports') return <ReportsScreen titles={Object.fromEntries(unit.lessons.map((l) => [l.id, l.title]))} />
   const i = unit.lessons.findIndex((l) => hash === `#/lesson/${l.id}`)
   const lesson = unit.lessons[i]
   return lesson?.summary ? (

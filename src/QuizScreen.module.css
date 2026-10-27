@@ -1,0 +1,184 @@
+.page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 0 20px 34px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  position: relative;
+  height: 54px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.back {
+  position: absolute;
+  inset-inline-start: 0;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  color: var(--ink);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 14px;
+  margin-block: 12px 10px;
+}
+
+.bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--hairline);
+  margin-block-end: 24px;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.prompt {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 20px 24px;
+}
+
+.choice,
+.choiceOn {
+  min-height: 56px;
+  box-sizing: border-box;
+  padding-inline: 18px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: var(--ground);
+  color: var(--ink);
+  font: inherit;
+  text-align: start;
+}
+
+.choiceOn {
+  border: 2px solid var(--accent);
+  background: var(--surface);
+}
+
+.input {
+  height: 56px;
+  box-sizing: border-box;
+  margin-block: 20px 24px;
+  padding-inline: 18px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+  background: var(--ground);
+  color: var(--ink);
+  font: inherit;
+  font-size: 19px;
+}
+
+.input:focus {
+  border: 2px solid var(--accent);
+  outline: none;
+}
+
+.primary,
+.secondary {
+  height: 52px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary {
+  margin-block-start: auto;
+  border: 0;
+  background: var(--accent);
+  color: var(--ground);
+}
+
+.primary:disabled {
+  opacity: 0.5;
+}
+
+.secondary {
+  border: 1px solid var(--hairline);
+  background: var(--ground);
+  color: var(--ink);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block-start: 24px;
+}
+
+.score {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: start;
+}
+
+.h2 {
+  margin-block: 16px 12px;
+  font-size: 20px;
+}
+
+.miss {
+  padding: 16px;
+  margin-block-end: 12px;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  font-size: 15px;
+}
+
+.miss .prompt {
+  font-size: 17px;
+  margin-block-end: 4px;
+}
+
+.wrong {
+  color: var(--wrong);
+}
+
+.right {
+  color: var(--right);
+}
+
+.why {
+  color: var(--muted);
+}
+
+.report {
+  height: 44px;
+  padding-inline: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+}

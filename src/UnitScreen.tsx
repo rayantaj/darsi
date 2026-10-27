@@ -3,11 +3,11 @@ import styles from './UnitScreen.module.css'
 
 import { load, type Progress } from './progress/store.ts'
 
-// Summary and quiz marks wait for their own features.
+// The summary mark waits for its own feature.
 const marks = (l: Unit['lessons'][number], p: Progress) => ({
   summary: false,
   cards: !!l.cards && l.cards.every((_, i) => (p.cards[`${l.id}:${i}`]?.box ?? 1) >= 2),
-  quiz: false,
+  quiz: p.quiz?.[l.id] !== undefined,
 })
 
 const labels = [

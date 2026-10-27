@@ -17,7 +17,7 @@ export default function SummaryScreen({ n, id, title, md }: { n: number; id: str
       <Summary md={md} />
       <div className={styles.actions}>
         <a href={`#/cards/${id}`} className={styles.primary}>البطاقات · 10</a>
-        <button type="button" disabled className={styles.secondary}>الاختبار · 10 أسئلة</button>
+        <a href={`#/quiz/${id}`} className={styles.secondary}>الاختبار · 10 أسئلة</a>
       </div>
     </div>
   )
