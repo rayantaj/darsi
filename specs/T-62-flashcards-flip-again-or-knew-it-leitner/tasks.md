@@ -1,6 +1,6 @@
 # Flashcards: flip, again or knew it, Leitner boxes with due dates in local storage: tasks
 
-Built as T-62.
+Built as T-62: https://github.com/rayantaj/darsi/pull/4.
 
 - [x] Add src/progress/store.ts: load() reads localStorage 'darsi.v1' and returns {cards:{}} if it's missing or broken; save(p) writes the whole object back; mark(p, key, knew, now) applies the Leitner rule; due(p, lessonId, n, now) returns the due card indexes, box 1 first.
 - [x] Add src/progress/store.test.ts for mark (again→box 1 due now; knew from 1→box 2 +1 day, from 2→box 3 +3 days, from 3 stays at 3 +3 days), due ordering, and load() on bad JSON.

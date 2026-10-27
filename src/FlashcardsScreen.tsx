@@ -49,12 +49,19 @@ export default function FlashcardsScreen({ id, title, cards }: { id: string; tit
         <div className={styles.fill} style={{ inlineSize: `${((total - queue.length) / total) * 100}%` }} />
       </div>
       <button type="button" className={styles.card} onClick={() => setFlipped(!flipped)}>
+        <span className={styles.side}>{flipped ? 'الإجابة' : 'الوجه'}</span>
         <Summary md={flipped ? cards[i].back : cards[i].front} />
         <span className={styles.flipHint}>{flipped ? 'اضغط للرجوع' : 'اضغط للقلب'}</span>
       </button>
       <div className={styles.actions}>
-        <button type="button" className={styles.again} onClick={() => answer(false)}>مرة أخرى</button>
-        <button type="button" className={styles.knew} onClick={() => answer(true)}>عرفتها</button>
+        <div className={styles.action}>
+          <button type="button" className={styles.again} onClick={() => answer(false)}>مرة أخرى</button>
+          <span className={styles.hint}>ترجع الآن</span>
+        </div>
+        <div className={styles.action}>
+          <button type="button" className={styles.knew} onClick={() => answer(true)}>عرفتها</button>
+          <span className={styles.hint}>ترجع بعد يوم</span>
+        </div>
       </div>
     </div>
   )

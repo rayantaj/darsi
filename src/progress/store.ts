@@ -15,7 +15,11 @@ export function load(): Progress {
 }
 
 export function save(p: Progress): void {
-  localStorage.setItem(KEY, JSON.stringify(p))
+  try {
+    localStorage.setItem(KEY, JSON.stringify(p))
+  } catch {
+    // quota or blocked storage: keep the session going
+  }
 }
 
 export function mark(p: Progress, key: string, knew: boolean, now: number): Progress {
