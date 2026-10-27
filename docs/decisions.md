@@ -11,3 +11,5 @@ One line each, newest last. Every brief carries them.
 - 2026-10-27 · T-62 · A lesson's بطاقات mark fills only when all ten cards are in box 2 or 3, so one card marked مرة أخرى empties it again (Ray's plan, T-62).
 - 2026-10-27 · T-62 · The عرفتها hint says ترجع بعد يوم even from box 2 or 3, where the card returns in 3 days, because the mock says so; change the mock before the text (Tech lead, T-62).
 - 2026-10-27 · T-62 · save() swallows storage errors so a full or blocked localStorage keeps the session going, but progress can be lost with no message (Tech lead, T-62).
+- 2026-10-27 · T-60 · Retaking a quiz clears the reported marks, so one miss can be reported twice and #/reports lists duplicates until report() dedupes on lessonId and index (Tech lead, T-60).
+- 2026-10-27 · T-60 · A criterion that names a content question is proven with an existing question, not by editing the content to fit it (Ray, T-60).
