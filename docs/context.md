@@ -1,23 +1,28 @@
 # Darsi
 Arabic study app (درسي) for a maths book: lessons, flashcards, quizzes and unit tests, built from content files.
 The POC runs in the phone browser: no server, no accounts, no network calls at runtime.
+
 Stack: React 18, Vite 6, TypeScript 5.6, Zod 3, KaTeX, Vitest, ESLint 9, tsx. IBM Plex Sans Arabic (400, 700) bundled. Minimum: iOS 17 Safari, current Chrome on Android.
 Deploy: GitHub Pages, https://rayantaj.github.io/darsi/ (Vite base '/darsi/'), from main via .github/workflows/pages.yml.
 
 ## Where things live
 - docs/brief.md, docs/tech.md, docs/ui.md: the spec. Not code; build tasks don't edit them.
 - docs/content-check.md: the second-pass re-solve log for T-59 (lesson, question, re-solved answer, file answer, agree or fixed).
-- design/: HTML mock-ups of the screens and canvas.json. Spec.
+- design/: HTML mock-ups of the screens (MainEmpty, Summary, Flashcards .dc.html) and canvas.json. Spec.
 - specs/<task-id-slug>/: requirements, design and tasks for each built Feature.
   - specs/T-58-setup-vite-react-typescript-rtl-shell-fo/: shell, schema, checker, deploy.
+  - specs/T-59-the-content-the-whole-unit-five-lessons/: the content, five lessons, second-pass check.
   - specs/T-61-unit-and-summary-screens-the-unit-list-w/: unit list, first-run hint, lesson summary, dark mode.
+  - specs/T-62-flashcards-flip-again-or-knew-it-leitner/: flashcards, Leitner boxes, cards mark.
 - content/units/: one JSON file per unit.
   - limits-derivatives.json (النهايات والاشتقاق): five lessons, each with a summary, 10 cards and 10 questions.
 - src/content/schema.ts: Zod UnitSchema. Unit > lessons. A lesson has a title and optional summary, cards (exactly 10) and questions (exactly 10, multiple-choice or numeric).
 - src/main.tsx: entry; imports the Plex font.
-- src/App.tsx: the shell and hash router. #/lesson/<id> shows SummaryScreen, anything else UnitScreen. Re-renders on hashchange.
-- src/UnitScreen.tsx (+ UnitScreen.module.css): unit list, one card per lesson with ملخص, بطاقات, اختبار marks; first-run hint; disabled unit test button.
-- src/SummaryScreen.tsx (+ SummaryScreen.module.css): lesson summary with back button to #/, rendered summary, disabled cards and test buttons.
+- src/App.tsx: the shell and hash router. #/lesson/<id> shows SummaryScreen; #/cards/<id> shows FlashcardsScreen for a lesson with cards; anything else UnitScreen. Re-renders on hashchange.
+- src/UnitScreen.tsx (+ UnitScreen.module.css): unit list, one card per lesson with ملخص, بطاقات, اختبار marks; first-run hint; disabled unit test button. The بطاقات mark comes from saved progress; ملخص and اختبار stay false.
+- src/SummaryScreen.tsx (+ SummaryScreen.module.css): lesson summary with back button to #/; rendered summary; البطاقات links to #/cards/<id>; disabled quiz button.
+- src/FlashcardsScreen.tsx (+ FlashcardsScreen.module.css): one lesson's ten cards: tap to flip, مرة أخرى and عرفتها, 'n / 10' and progress bar. Queue from due(); ends at #/.
+- src/progress/store.ts (+ store.test.ts): load, save, mark (Leitner boxes 1-3), due (box 1 first). localStorage key 'darsi.v1': {cards: {'<lessonId>:<index>': {box, due}}}.
 - src/Summary.tsx (+ Summary.module.css, Summary.test.tsx): small Markdown renderer for ## headings, '- label: …' rule rows and paragraphs; $…$ rendered with KaTeX.
 - src/index.css: colour tokens, light and dark by prefers-color-scheme; body 17px/1.6.
 - index.html: lang ar, dir rtl.
@@ -26,7 +31,7 @@ Deploy: GitHub Pages, https://rayantaj.github.io/darsi/ (Vite base '/darsi/'), f
 - vite.config.ts: base '/darsi/'.
 - .github/workflows/pages.yml: Node 20; check:content, build, then deploy to Pages on push to main.
 - eslint.config.js, tsconfig.json: lint and TypeScript.
-- Not built yet (later Features): service worker, progress storage (src/progress/), web manifest.
+- Not built yet (later Features): service worker, web manifest.
 
 ## How it's checked (the runner's)
 - npm ci
@@ -42,15 +47,19 @@ Deploy: GitHub Pages, https://rayantaj.github.io/darsi/ (Vite base '/darsi/'), f
 - Logical CSS only (margin-inline-start, not margin-left). Numbers and formulas are LTR islands.
 - Styles: CSS modules using src/index.css variables only. No theme toggle; dark mode comes from prefers-color-scheme.
 - Routing and Markdown: hash routing, no router or Markdown library. Summary.tsx handles only the subset listed above.
+- Progress: plain localStorage 'darsi.v1', only through src/progress/store.ts. No state or storage library.
 - Dependencies: only the list in docs/tech.md. Nothing else without a line there.
 - Risky paths, always reviewed: content/**, src/content/**, src/progress/**, package.json, package-lock.json, vite.config.ts, .github/**.
 
 ## Known debt
-- tsconfig.tsbuildinfo is committed. Delete it and add *.tsbuildinfo to .gitignore.
+- tsconfig.tsbuildinfo is committed (T-62 changed it again). Delete it and add *.tsbuildinfo to .gitignore.
 - scripts/check-content.ts:55: a literal \$ is read as a formula delimiter. No escape yet.
 - src/index.css: light --surface #f6f7f8 isn't in docs/ui.md. The designer must confirm it.
 - Live site not confirmed: https://rayantaj.github.io/darsi/ returned 404 at QA, before the first deploy.
 - The nine-question and bad-formula checker cases are covered by Vitest only. Not run end to end on a content file.
-- src/UnitScreen.tsx: marks are hardcoded false until the progress store (T-60, T-62); a filled mark is dot colour only, with no text for screen readers; title-only lessons still show a chevron though they open nothing.
-- src/UnitScreen.module.css: font-weight 500 and 600 aren't bundled (Plex has 400 and 700 only). Use 400 or 700.
+- src/UnitScreen.tsx: summary and quiz marks are hardcoded false; a filled mark is dot colour only, with no text for screen readers; title-only lessons still show a chevron though they open nothing.
+- font-weight 500 and 600 aren't bundled (Plex has 400 and 700 only): src/UnitScreen.module.css, src/SummaryScreen.module.css, src/Summary.module.css. Use 400 or 700.
 - src/UnitScreen.module.css and src/Summary.tsx: the hint is accent 14px, not muted 15px as in design/MainEmpty.dc.html; the worked example isn't in a hairline card as in design/Summary.dc.html.
+- src/FlashcardsScreen.tsx: the title sits above the counter, not on one row as in design/Flashcards.dc.html:25-27.
+- src/FlashcardsScreen.tsx: the الوجه / الإجابة label has no aria-live, so VoiceOver may not announce the flip (not checked in QA).
+- Not built yet (later Features): service worker, web manifest.
