@@ -2,7 +2,20 @@ const KEY = 'darsi.v1'
 const DAY = 86400000
 
 export type Box = 1 | 2 | 3
-export type Progress = { cards: Record<string, { box: Box; due: number }> }
+export type Report = { lessonId: string; index: number; prompt: string; at: number }
+export type Progress = {
+  cards: Record<string, { box: Box; due: number }>
+  quiz?: Record<string, number>
+  reports?: Report[]
+}
+
+export function best(p: Progress, id: string, score: number): Progress {
+  return { ...p, quiz: { ...p.quiz, [id]: Math.max(score, p.quiz?.[id] ?? 0) } }
+}
+
+export function report(p: Progress, r: Report): Progress {
+  return { ...p, reports: [...(p.reports ?? []), r] }
+}
 
 export function load(): Progress {
   try {

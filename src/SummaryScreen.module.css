@@ -59,6 +59,10 @@
 }
 
 .secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   border: 1px solid var(--hairline);
   background: var(--ground);
   color: var(--ink);
