@@ -1,6 +1,6 @@
 # The content: the whole unit, five lessons, each a summary, 10 flashcards and 10 questions with a why, checked twice: tasks
 
-Built as T-59.
+Built as T-59: https://github.com/rayantaj/darsi/pull/3.
 
 - [x] In scripts/check-content.ts, have the CLI print one line per lesson: `<lesson id> "<title>": summary ✓|–, N cards, N questions`, before the existing total. Add one Vitest case to scripts/check-content.test.ts.
 - [x] In content/units/limits-derivatives.json, write the summary, 10 cards and 10 questions for النهايات, الاتصال, قاعدة السلسلة and تطبيقات المشتقة, in our own words. Use the same summary format as المشتقة وقواعدها.
