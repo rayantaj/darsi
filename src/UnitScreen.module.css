@@ -110,8 +110,8 @@
   color: var(--ink);
   font: inherit;
   font-weight: 600;
-}
-
-.unitTest:disabled {
-  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }

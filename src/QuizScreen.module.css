@@ -30,6 +30,13 @@
   color: var(--ink);
 }
 
+.timer {
+  position: absolute;
+  inset-inline-end: 0;
+  font-weight: 400;
+  color: var(--muted);
+}
+
 .meta {
   display: flex;
   justify-content: space-between;

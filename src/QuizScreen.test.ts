@@ -17,4 +17,9 @@ describe('isRight', () => {
     expect(isRight(numeric, '5')).toBe(false)
     expect(isRight(numeric, 'x')).toBe(false)
   })
+  it('a blank answer is wrong, even for 0', () => {
+    expect(isRight({ ...numeric, answer: '0' }, '')).toBe(false)
+    expect(isRight({ ...numeric, answer: '0' }, '  ')).toBe(false)
+    expect(isRight(mc, '')).toBe(false)
+  })
 })

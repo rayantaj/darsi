@@ -7,6 +7,11 @@ export type Progress = {
   cards: Record<string, { box: Box; due: number }>
   quiz?: Record<string, number>
   reports?: Report[]
+  tests?: { score: number; at: number }[]
+}
+
+export function addTest(p: Progress, score: number, at: number): Progress {
+  return { ...p, tests: [...(p.tests ?? []), { score, at }] }
 }
 
 export function best(p: Progress, id: string, score: number): Progress {
