@@ -13,3 +13,6 @@ One line each, newest last. Every brief carries them.
 - 2026-10-27 · T-62 · save() swallows storage errors so a full or blocked localStorage keeps the session going, but progress can be lost with no message (Tech lead, T-62).
 - 2026-10-27 · T-60 · Retaking a quiz clears the reported marks, so one miss can be reported twice and #/reports lists duplicates until report() dedupes on lessonId and index (Tech lead, T-60).
 - 2026-10-27 · T-60 · A criterion that names a content question is proven with an existing question, not by editing the content to fit it (Ray, T-60).
+- 2026-10-27 · T-63 · A blank or empty answer is always wrong in isRight, so an unanswered numeric question can't match a 0 answer (T-63).
+- 2026-10-27 · T-63 · The unit test reuses QuizScreen through optional back, refs, seconds and onScore props; with none of them it must behave exactly as the lesson quiz does, including its best() save (T-63).
+- 2026-10-27 · T-63 · The timer's dir=ltr sits on an inner bdi, not the header span: on the span it lands on the right edge over the RTL back arrow (T-63).
