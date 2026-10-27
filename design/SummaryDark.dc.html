@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>ملخص الدرس 3 · ليلي</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;1,400&display=swap">
+<style>body{margin:0} a{color:#2DD4BF} a:hover{color:#5EEAD4}</style>
+</helmet>
+<div style="width: 390px; min-height: 1180px; box-sizing: border-box; background: #111417; color: #F2F4F6; font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; padding: 0 20px 34px">
+
+  <header style="height: 54px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0">
+    <a href="Main.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #2A3038; box-sizing: border-box; color: #F2F4F6; text-decoration: none">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+    </a>
+    <span style="font-size: 17px; font-weight: 600; color: #F2F4F6">الدرس 3</span>
+    <span style="width: 44px; height: 44px; display: block"></span>
+  </header>
+
+  <div style="padding: 12px 0 20px">
+    <h1 style="margin: 0; font-size: 28px; font-weight: 700; line-height: 1.3">المشتقة وقواعدها</h1>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 28px">
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4">الفكرة</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6">المشتقة تقيس معدل التغير اللحظي للدالة عند نقطة: كم تتغير قيمة الدالة عندما يتغير المتغير تغيرًا صغيرًا جدًا. وهندسيًا، هي ميل المماس لمنحنى الدالة عند تلك النقطة.</p>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4">القواعد</h2>
+      <div style="background: #1A1E23; border: 1px solid #2A3038; border-radius: 16px; padding: 0 20px; display: flex; flex-direction: column">
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #2A3038">
+          <span style="font-size: 14px; color: #A3ADB8">مشتقة الثابت</span>
+          <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">d/dx [c] = 0</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #2A3038">
+          <span style="font-size: 14px; color: #A3ADB8">قاعدة القوة</span>
+          <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">d/dx xⁿ = n·xⁿ⁻¹</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #2A3038">
+          <span style="font-size: 14px; color: #A3ADB8">مشتقة المجموع = مجموع المشتقات</span>
+          <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">d/dx [f(x) + g(x)] = f′(x) + g′(x)</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0">
+          <span style="font-size: 14px; color: #A3ADB8">الثابت يخرج</span>
+          <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">d/dx [c·f(x)] = c·f′(x)</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.4">مثال محلول</h2>
+      <div style="background: #1A1E23; border: 1px solid #2A3038; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">f(x) = 3x² − 5x + 2</span>
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px; display: block; text-align: right">⟹ f′(x) = 6x − 5</span>
+        <p style="margin: 4px 0 0; font-size: 15px; line-height: 1.6; color: #A3ADB8">اشتققنا كل حد على حدة: <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 17px">3x²</span> تصير <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 17px">6x</span> بقاعدة القوة، و<span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 17px">−5x</span> تصير <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 17px">−5</span>، والثابت 2 مشتقته صفر.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <div style="display: flex; gap: 12px; margin-top: 32px">
+    <a href="Flashcards.dc.html" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 52px; box-sizing: border-box; background: #2DD4BF; border-radius: 14px; font-size: 17px; font-weight: 600; color: #111417; text-decoration: none">البطاقات · 10</a>
+    <a href="Quiz.dc.html" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 52px; box-sizing: border-box; background: #1A1E23; border: 1px solid #2A3038; border-radius: 14px; font-size: 17px; font-weight: 600; color: #F2F4F6; text-decoration: none">الاختبار · 10 أسئلة</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

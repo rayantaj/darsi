@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>الاختبار</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;1,400&display=swap">
+<style>body{margin:0} a{color:#0F766E} a:hover{color:#0B5F58}</style>
+</helmet>
+<div style="width: 390px; min-height: 844px; box-sizing: border-box; background: #FFFFFF; color: #15181C; font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif; display: flex; flex-direction: column; padding: 0 20px 34px">
+
+  <header style="height: 54px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0">
+    <a href="Main.dc.html" aria-label="رجوع" style="width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid #E3E6EA; box-sizing: border-box; color: #15181C; text-decoration: none">
+      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+    </a>
+    <span style="font-size: 17px; font-weight: 600; color: #15181C">الاختبار</span>
+    <span style="width: 44px; height: 44px; display: block"></span>
+  </header>
+
+  <div style="display: flex; flex-direction: column; gap: 10px; padding: 12px 0 24px">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; font-size: 14px; color: #5B6470">
+      <span>السؤال 3 من 10</span>
+      <span>المشتقة وقواعدها</span>
+    </div>
+    <div style="height: 4px; border-radius: 2px; background: #E3E6EA; overflow: hidden">
+      <div style="width: 30%; height: 4px; border-radius: 2px; background: #0F766E"></div>
+    </div>
+  </div>
+
+  <p style="margin: 0 0 20px; font-size: 20px; font-weight: 600; line-height: 1.6">ما مشتقة <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 21px; font-weight: 400">f(x) = 4x³ − 2x</span>؟</p>
+
+  <div style="display: flex; flex-direction: column; gap: 10px">
+
+    <sc-if value="{{ sel0 }}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{ pick0 }}" aria-pressed="true" style="width: 100%; height: 56px; box-sizing: border-box; background: #E6F4F2; border: 2px solid #0F766E; border-radius: 14px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x² − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; background: #0F766E; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ not0 }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ pick0 }}" aria-pressed="false" style="width: 100%; height: 56px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E3E6EA; border-radius: 14px; padding: 0 19px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x² − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #E3E6EA; box-sizing: border-box; display: block"></span>
+      </button>
+    </sc-if>
+
+    <sc-if value="{{ sel1 }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ pick1 }}" aria-pressed="true" style="width: 100%; height: 56px; box-sizing: border-box; background: #E6F4F2; border: 2px solid #0F766E; border-radius: 14px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x² − 2x</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; background: #0F766E; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ not1 }}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{ pick1 }}" aria-pressed="false" style="width: 100%; height: 56px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E3E6EA; border-radius: 14px; padding: 0 19px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x² − 2x</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #E3E6EA; box-sizing: border-box; display: block"></span>
+      </button>
+    </sc-if>
+
+    <sc-if value="{{ sel2 }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ pick2 }}" aria-pressed="true" style="width: 100%; height: 56px; box-sizing: border-box; background: #E6F4F2; border: 2px solid #0F766E; border-radius: 14px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">4x² − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; background: #0F766E; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ not2 }}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{ pick2 }}" aria-pressed="false" style="width: 100%; height: 56px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E3E6EA; border-radius: 14px; padding: 0 19px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">4x² − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #E3E6EA; box-sizing: border-box; display: block"></span>
+      </button>
+    </sc-if>
+
+    <sc-if value="{{ sel3 }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ pick3 }}" aria-pressed="true" style="width: 100%; height: 56px; box-sizing: border-box; background: #E6F4F2; border: 2px solid #0F766E; border-radius: 14px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x³ − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; background: #0F766E; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"></path></svg></span>
+      </button>
+    </sc-if>
+    <sc-if value="{{ not3 }}" hint-placeholder-val="{{ true }}">
+      <button type="button" onClick="{{ pick3 }}" aria-pressed="false" style="width: 100%; height: 56px; box-sizing: border-box; background: #FFFFFF; border: 1px solid #E3E6EA; border-radius: 14px; padding: 0 19px; display: flex; align-items: center; justify-content: space-between; font-family: inherit; color: #15181C; cursor: pointer">
+        <span dir="ltr" style="font-family: 'STIX Two Text', 'Times New Roman', serif; font-size: 19px">12x³ − 2</span>
+        <span style="width: 20px; height: 20px; border-radius: 50%; border: 1px solid #E3E6EA; box-sizing: border-box; display: block"></span>
+      </button>
+    </sc-if>
+
+  </div>
+
+  <div style="flex: 1"></div>
+
+  <button type="button" style="width: 100%; height: 52px; box-sizing: border-box; margin-top: 24px; background: #0F766E; border: 0; border-radius: 14px; font-family: inherit; font-size: 17px; font-weight: 600; color: #FFFFFF; cursor: pointer">تأكيد</button>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var state = this.state || {};
+    var picked = typeof state.picked === "number" ? state.picked : 0;
+    var self = this;
+    return {
+      sel0: picked === 0, not0: picked !== 0,
+      sel1: picked === 1, not1: picked !== 1,
+      sel2: picked === 2, not2: picked !== 2,
+      sel3: picked === 3, not3: picked !== 3,
+      pick0: function () { self.setState({ picked: 0 }); },
+      pick1: function () { self.setState({ picked: 1 }); },
+      pick2: function () { self.setState({ picked: 2 }); },
+      pick3: function () { self.setState({ picked: 3 }); }
+    };
+  }
+}
+</script>
+</body>
+</html>
